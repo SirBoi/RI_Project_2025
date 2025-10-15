@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Profiling;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainLoop : MonoBehaviour
 {
-    public Utility utility;
     public GameObject agentPrefab;
+    public Slider fpsSlider;
 
     private List<GameObject> agents = new List<GameObject>();
 
@@ -15,9 +16,12 @@ public class MainLoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 60;
-        GameObject agent = Instantiate(agentPrefab, utility.GetGridPosition(3, 4), Quaternion.identity);
+        Application.targetFrameRate = 30;
+        GameObject agent = Instantiate(agentPrefab, Utility.GetGridPositionCenter(3, 4), Quaternion.identity);
         agents.Add(agent);
+
+        fpsSlider.value = Application.targetFrameRate;
+        fpsSlider.onValueChanged.AddListener(SetTargetFps);
     }
 
     // Update is called once per frame
@@ -25,15 +29,27 @@ public class MainLoop : MonoBehaviour
     {
         counter++;
 
-        if (counter >= 60)
+        if (counter >= 30)
         {
             int x = Random.Range(1, 9);
             int y = Random.Range(1, 9);
             Debug.Log(x + " " + y);
 
-            agents[0].transform.position = utility.GetGridPosition(x, y);
+            agents[0].transform.position = Utility.GetGridPositionCenter(x, y);
 
             counter = 0;
         }
+
+        Debug.Log("Target FPS set to: " + Application.targetFrameRate);
+    }
+
+    void InitializeSimulation(int numberOfTribes)
+    {
+        //InitializeTribes(numberOfTribes);
+    }
+
+    public void SetTargetFps(float newFps)
+    {
+        Application.targetFrameRate = Mathf.RoundToInt(newFps);
     }
 }

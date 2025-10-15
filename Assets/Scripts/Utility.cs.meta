@@ -3,7 +3,11 @@ guid: 901f4d421b2a08a4eb28a971a064c6cb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - team1Var: {fileID: 2100000, guid: e871de07da06ae5429159c69d35a61f5, type: 2}
+  - team2Var: {fileID: 2100000, guid: 965d535e0bc640544b79691210327d30, type: 2}
+  - team3Var: {fileID: 2100000, guid: 6ded948ceaf3e184d95a2ca012f3a987, type: 2}
+  - team4Var: {fileID: 2100000, guid: 0fd49263e52f5874a8b2a869c5d46375, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
