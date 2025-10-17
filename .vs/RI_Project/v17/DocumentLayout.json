@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|c:\\users\\administrator\\documents\\github\\ri_project\\assets\\scripts\\tree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\agent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\agent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\initscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\initscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\mainloop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +19,20 @@
       "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\agent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\agent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\initscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\initscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\tree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\tribe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tribe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\assets\\scripts\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|c:\\users\\administrator\\documents\\github\\ri_project\\assets\\scripts\\eventclick.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF9EAF4F-44CC-2818-4144-C773AB7C4EE5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eventclick.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,26 +58,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "EventClick.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\EventClick.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EventClick.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\EventClick.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EventClick.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T20:30:01.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserInterface.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\UserInterface.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UserInterface.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\UserInterface.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UserInterface.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T19:55:26.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Tree.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Tree.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Tree.cs",
               "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Tree.cs",
               "RelativeToolTip": "Assets\\Scripts\\Tree.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T21:22:19.328Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "InitScript.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\InitScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\InitScript.cs",
               "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\InitScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\InitScript.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFwAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T20:05:04.724Z",
               "EditorCaption": ""
@@ -86,32 +116,20 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Home.cs",
               "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Home.cs",
               "RelativeToolTip": "Assets\\Scripts\\Home.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T17:51:15.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Tribe.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Tribe.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Tribe.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Tribe.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Tribe.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T17:25:21.075Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Agent.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Agent.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Agent.cs",
               "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Agent.cs",
               "RelativeToolTip": "Assets\\Scripts\\Agent.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABMAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T16:47:09.864Z",
               "EditorCaption": ""
@@ -124,22 +142,23 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainLoop.cs",
               "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\MainLoop.cs",
               "RelativeToolTip": "Assets\\Scripts\\MainLoop.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAoAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-14T21:05:17.744Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Utility.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Utility.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Utility.cs",
               "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\RI_Project\\Assets\\Scripts\\Utility.cs",
               "RelativeToolTip": "Assets\\Scripts\\Utility.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAAACUAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T20:55:21.793Z"
+              "WhenOpened": "2025-10-14T20:55:21.793Z",
+              "EditorCaption": ""
             }
           ]
         }

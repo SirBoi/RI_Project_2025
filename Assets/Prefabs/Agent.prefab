@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2457348614963631152}
   - component: {fileID: 6270301446405082942}
   - component: {fileID: 6625311679711563652}
+  - component: {fileID: 6576937937981209031}
   - component: {fileID: 3447269804944117511}
   m_Layer: 0
   m_Name: Agent
@@ -97,6 +98,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6576937937981209031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317918624256684289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9846035911a75b43bf1b4948b27cd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3447269804944117511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +122,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1dcbe7ddc32a1c409c55a96203d106f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agentPrefab: {fileID: 1317918624256684289}
+  tribeId: 0
+  x: 0
+  y: 0
+  isAdult: 0
+  age: 0
+  adulthoodAge: 0
+  energy: 0
+  inventory: 0
+  inventoryCapacity: 0
+  fertility: 0
+  mutationRate: 0
+  mutationStrength: 0
+  vitality: 0
+  speed: 0
+  height: 0
+  strength: 0
+  vision: 0
+  aggression: 0
+  cowardice: 0
+  charisma: 0
+  curiosity: 0
+  patience: 0

@@ -1,21 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Utility : MonoBehaviour
 {
-    public static int numberOfTribes;
-    public static int numberOfAgentsPerTribe;
-    public static int numberOfTrees;
     public static Material team1;
     public static Material team2;
     public static Material team3;
     public static Material team4;
 
-    public int numberOfTribesVar;
-    public int numberOfAgentsPerTribeVar;
-    public int numberOfTreesVar;
     public Material team1Var;
     public Material team2Var;
     public Material team3Var;
@@ -23,9 +14,6 @@ public class Utility : MonoBehaviour
 
     private void Awake()
     {
-        numberOfTribes = numberOfTribesVar;
-        numberOfAgentsPerTribe = numberOfAgentsPerTribeVar;
-        numberOfTrees = numberOfTreesVar;
         team1 = team1Var;
         team2 = team2Var;
         team3 = team3Var;
@@ -37,24 +25,74 @@ public class Utility : MonoBehaviour
         return new Vector3(y % 2 == 0 ? x * 1.8f : 0.9f + x * 1.8f , 0, y * -1.55f);
     }
 
+    public static Vector2 GetHexFromPosition(float x, float y, int tribeId)
+    {
+        int yy = Mathf.RoundToInt(Mathf.Abs(y + (tribeId <= 2 ? -0.5f : 0.5f)) / 1.55f);
+        int xx = Mathf.RoundToInt(Mathf.Abs(x + (tribeId % 2 == 1 ? 0.5f : -0.5f) - (yy % 2 == 1 ? 0.9f : 0)) / 1.8f);
+
+        if (tribeId == 2)
+        {
+            Debug.Log(x + " " + y);
+            Debug.Log(tribeId % 2 == 1);
+            Debug.Log(tribeId % 2 == 1 ? 0.5f : -0.5f);
+            Debug.Log(Mathf.Abs(x + (tribeId % 2 == 1 ? 0.5f : -0.5f)));
+            Debug.Log(Mathf.Abs(x + (tribeId % 2 == 1 ? 0.5f : -0.5f)) / 1.8f);
+            Debug.Log(xx + " " + yy);
+        }
+
+        return new Vector2(xx, yy);
+    }
+
+    public static Vector3 GetAgentGridPosition(int x, int y, int tribeId)
+    {
+        switch (tribeId)
+        {
+            case 1:
+                return new Vector3(y % 2 == 0 ? x * 1.8f - 0.5f : 0.9f + x * 1.8f - 0.5f, 0.55f, y * -1.55f + 0.5f);
+            case 2:
+                return new Vector3(y % 2 == 0 ? x * 1.8f + 0.5f : 0.9f + x * 1.8f + 0.5f, 0.55f, y * -1.55f + 0.5f);
+            case 3:
+                return new Vector3(y % 2 == 0 ? x * 1.8f - 0.5f : 0.9f + x * 1.8f - 0.5f, 0.55f, y * -1.55f - 0.5f);
+            case 4:
+                return new Vector3(y % 2 == 0 ? x * 1.8f + 0.5f : 0.9f + x * 1.8f + 0.5f, 0.55f, y * -1.55f - 0.5f);
+        }
+        return new Vector3(y % 2 == 0 ? x * 1.8f : 0.9f + x * 1.8f, 0.55f, y * -1.55f);
+    }
+
+    public static Material GetTeamMaterial(int teamId)
+    {
+        switch (teamId)
+        {
+            case 1:
+                return team1;
+            case 2:
+                return team2;
+            case 3:
+                return team3;
+            case 4:
+                return team4;
+        }
+        return null;
+    }
+
     public static bool IsNearHome(int x, int y)
     {
-        if (Utility.numberOfTribes == 1)
+        if (InitScript.numberOfTribes == 1)
         {
             if (DistanceBetween(x, y, 0, 0) <= 2) return true;
         }
-        else if (Utility.numberOfTribes == 2)
+        else if (InitScript.numberOfTribes == 2)
         {
             if (DistanceBetween(x, y, 0, 0) <= 2) return true;
             if (DistanceBetween(x, y, 9, 9) <= 2) return true;
         }
-        else if (Utility.numberOfTribes == 3)
+        else if (InitScript.numberOfTribes == 3)
         {
             if (DistanceBetween(x, y, 0, 0) <= 2) return true;
             if (DistanceBetween(x, y, 9, 3) <= 2) return true;
             if (DistanceBetween(x, y, 3, 9) <= 2) return true;
         }
-        else if (Utility.numberOfTribes == 4)
+        else if (InitScript.numberOfTribes == 4)
         {
             if (DistanceBetween(x, y, 0, 0) <= 2) return true;
             if (DistanceBetween(x, y, 9, 0) <= 2) return true;
@@ -70,5 +108,32 @@ public class Utility : MonoBehaviour
             Mathf.Abs(y2 - y1),
             Mathf.Abs(Mathf.Ceil(y2 / -2) + x2 - Mathf.Ceil(y1 / -2) - x1),
             Mathf.Abs(-y2 - Mathf.Ceil(y2 / -2) - x2 + y1 + Mathf.Ceil(y1 / -2) + x1));
+    }
+
+    internal static bool IsAtHome(int x, int y, int tribeId)
+    {
+        if (InitScript.numberOfTribes == 1)
+        {
+            if (tribeId == 1 && x == 0 && y == 0) return true;
+        }
+        else if (InitScript.numberOfTribes == 2)
+        {
+            if (tribeId == 1 && x == 0 && y == 0) return true;
+            if (tribeId == 2 && x == 9 && y == 9) return true;
+        }
+        else if (InitScript.numberOfTribes == 3)
+        {
+            if (tribeId == 1 && x == 0 && y == 0) return true;
+            if (tribeId == 2 && x == 9 && y == 3) return true;
+            if (tribeId == 3 && x == 3 && y == 9) return true;
+        }
+        else if (InitScript.numberOfTribes == 4)
+        {
+            if (tribeId == 1 && x == 0 && y == 0) return true;
+            if (tribeId == 2 && x == 9 && y == 0) return true;
+            if (tribeId == 3 && x == 0 && y == 9) return true;
+            if (tribeId == 4 && x == 9 && y == 9) return true;
+        }
+        return false;
     }
 }

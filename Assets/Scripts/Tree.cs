@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Tree : MonoBehaviour
 {
     private GameObject fruit;
-    private int counter = 0;
+    public int counter = 0;
+    public bool isGrown = true;
 
     // Start is called before the first frame update
     void Start()
@@ -14,19 +12,19 @@ public class Tree : MonoBehaviour
         fruit = transform.Find("Fruit").gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ProcessTree()
     {
-        counter++;
-
-        if (counter >= 30)
+        if (!isGrown)
         {
-            if (fruit.active)
-                fruit.SetActive(false);
-            else
-                fruit.SetActive(true);
+            fruit.SetActive(false);
+            counter++;
+        }
 
+        if (counter >= InitScript.fruitGrowthSpeed)
+        {
+            fruit.SetActive(true);
             counter = 0;
+            isGrown = true;
         }
     }
 }

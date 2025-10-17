@@ -1,55 +1,86 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Profiling;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MainLoop : MonoBehaviour
 {
     public GameObject agentPrefab;
-    public Slider fpsSlider;
-
-    private List<GameObject> agents = new List<GameObject>();
-
+    private UserInterface userInterfaceScript;
     private int counter = 0;
+    private int totalTicks = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 30;
-        GameObject agent = Instantiate(agentPrefab, Utility.GetGridPositionCenter(3, 4), Quaternion.identity);
-        agents.Add(agent);
-
-        fpsSlider.value = Application.targetFrameRate;
-        fpsSlider.onValueChanged.AddListener(SetTargetFps);
+        userInterfaceScript = GetComponent<UserInterface>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (userInterfaceScript.isPaused)
+            return;
+
         counter++;
 
-        if (counter >= 30)
+        if (counter >= 120 / userInterfaceScript.fps)
         {
-            int x = Random.Range(1, 9);
-            int y = Random.Range(1, 9);
-            Debug.Log(x + " " + y);
+            ProcessAgents();
+            ProcessTrees();
+            ProcessHomes();
+            UpdateUserInterface();
 
-            agents[0].transform.position = Utility.GetGridPositionCenter(x, y);
-
+            totalTicks++;
             counter = 0;
         }
-
-        Debug.Log("Target FPS set to: " + Application.targetFrameRate);
     }
 
-    void InitializeSimulation(int numberOfTribes)
+    private void ProcessAgents()
     {
-        //InitializeTribes(numberOfTribes);
+        for (int i = 0; i < InitScript.tribes.Count; i++)
+        {
+            List<GameObject> agentsToKill = new List<GameObject>();
+
+            foreach (GameObject agentObject in InitScript.tribes[i])
+            {
+                Agent agent = agentObject.GetComponent<Agent>();
+
+                if (agent.ProcessDeath() != null)
+                    agentsToKill.Add(agentObject);
+                
+                if (agent.isAdult)
+                {
+                    agent.ProcessFeeding();
+                    agent.ProcessReproduction();
+                    agent.ProcessAction();
+                }
+
+                agent.ProcessGrowth();
+            }
+
+            foreach (GameObject agentObject in agentsToKill)
+            {
+                InitScript.tribes[i].Remove(agentObject);
+                Destroy(agentObject);
+            }
+        }
     }
 
-    public void SetTargetFps(float newFps)
+    private void ProcessTrees()
     {
-        Application.targetFrameRate = Mathf.RoundToInt(newFps);
+        foreach (GameObject tree in InitScript.trees)
+            tree.GetComponent<Tree>().ProcessTree();
+    }
+
+    private void ProcessHomes()
+    {
+        foreach (GameObject home in InitScript.homes)
+            home.GetComponent<Home>().ProcessHome();
+    }
+
+    private void UpdateUserInterface()
+    {
+        userInterfaceScript.UpdateTribeScores();
+        userInterfaceScript.UpdateTribePopulation();
+        userInterfaceScript.UpdateSimulationTicksCount(totalTicks);
     }
 }

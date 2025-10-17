@@ -1,20 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Home : MonoBehaviour
 {
     public int id;
+    private int counter = 0;
+    public float prosperity = 0;
+    public float storedFood = 0;
+    public float ambition;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ambition = InitScript.ambition;
+
+        if (ambition <= 0) ambition = 1;
+        if (ambition > 100) ambition = 100;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ProcessHome()
     {
-        
+        // Decay prosperity
+        prosperity -= Mathf.Max(prosperity / 100, 0.01f);
+        if (prosperity < 0) prosperity = 0;
+
+        // Generate prosperity from excess food
+        if (storedFood > 100 - ambition)
+        {
+            if (counter > 100) // Check if food supply is stable
+            {
+                prosperity += storedFood - 100 + ambition;
+                storedFood = 100 - ambition;
+                counter = 0;
+            } else
+            {
+                counter++;
+            }
+            
+        } else
+        {
+            counter = 0;
+        }
     }
+
+
 }
