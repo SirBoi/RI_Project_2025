@@ -3,6 +3,8 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
     private GameObject fruit;
+    public int x;
+    public int y;
     public int counter = 0;
     public bool isGrown = true;
 

@@ -17,6 +17,8 @@ public class MainLoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateUserInterface();
+
         if (userInterfaceScript.isPaused)
             return;
 
@@ -27,7 +29,6 @@ public class MainLoop : MonoBehaviour
             ProcessAgents();
             ProcessTrees();
             ProcessHomes();
-            UpdateUserInterface();
 
             totalTicks++;
             counter = 0;
@@ -39,8 +40,12 @@ public class MainLoop : MonoBehaviour
         for (int i = 0; i < InitScript.tribes.Count; i++)
         {
             List<GameObject> agentsToKill = new List<GameObject>();
+            List<GameObject> agentsToProcess = new List<GameObject>();
 
             foreach (GameObject agentObject in InitScript.tribes[i])
+                agentsToProcess.Add(agentObject);
+
+            foreach (GameObject agentObject in agentsToProcess)
             {
                 Agent agent = agentObject.GetComponent<Agent>();
 
@@ -49,12 +54,20 @@ public class MainLoop : MonoBehaviour
                 
                 if (agent.isAdult)
                 {
-                    agent.ProcessFeeding();
-                    agent.ProcessReproduction();
                     agent.ProcessAction();
                 }
 
                 agent.ProcessGrowth();
+            }
+
+            foreach (GameObject agentObject in agentsToProcess)
+            {
+                Agent agent = agentObject.GetComponent<Agent>();
+
+                if (agent.isAdult)
+                {
+                    agent.ProcessReproduction();
+                }
             }
 
             foreach (GameObject agentObject in agentsToKill)
@@ -82,5 +95,6 @@ public class MainLoop : MonoBehaviour
         userInterfaceScript.UpdateTribeScores();
         userInterfaceScript.UpdateTribePopulation();
         userInterfaceScript.UpdateSimulationTicksCount(totalTicks);
+        userInterfaceScript.UpdataSelectedObjectData();
     }
 }

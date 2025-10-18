@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Utility : MonoBehaviour
@@ -29,16 +31,6 @@ public class Utility : MonoBehaviour
     {
         int yy = Mathf.RoundToInt(Mathf.Abs(y + (tribeId <= 2 ? -0.5f : 0.5f)) / 1.55f);
         int xx = Mathf.RoundToInt(Mathf.Abs(x + (tribeId % 2 == 1 ? 0.5f : -0.5f) - (yy % 2 == 1 ? 0.9f : 0)) / 1.8f);
-
-        if (tribeId == 2)
-        {
-            Debug.Log(x + " " + y);
-            Debug.Log(tribeId % 2 == 1);
-            Debug.Log(tribeId % 2 == 1 ? 0.5f : -0.5f);
-            Debug.Log(Mathf.Abs(x + (tribeId % 2 == 1 ? 0.5f : -0.5f)));
-            Debug.Log(Mathf.Abs(x + (tribeId % 2 == 1 ? 0.5f : -0.5f)) / 1.8f);
-            Debug.Log(xx + " " + yy);
-        }
 
         return new Vector2(xx, yy);
     }
@@ -110,7 +102,7 @@ public class Utility : MonoBehaviour
             Mathf.Abs(-y2 - Mathf.Ceil(y2 / -2) - x2 + y1 + Mathf.Ceil(y1 / -2) + x1));
     }
 
-    internal static bool IsAtHome(int x, int y, int tribeId)
+    public static bool IsAtHome(int x, int y, int tribeId)
     {
         if (InitScript.numberOfTribes == 1)
         {
@@ -135,5 +127,87 @@ public class Utility : MonoBehaviour
             if (tribeId == 4 && x == 9 && y == 9) return true;
         }
         return false;
+    }
+
+    public static List<GameObject> GetHomesAt(int x, int y)
+    {
+        List<GameObject> foundHomes = new List<GameObject>();
+
+        foreach (GameObject home in InitScript.homes)
+        {
+            Home h = home.GetComponent<Home>();
+
+            if (h.x == x && h.y == y)
+                foundHomes.Add(home);
+        }
+
+        return foundHomes;
+    }
+
+    public static List<GameObject> GetAgentsAt(int x, int y)
+    {
+        List<GameObject> foundAgents = new List<GameObject>();
+
+        foreach (List<GameObject> tribe in InitScript.tribes)
+        {
+            foreach (GameObject agent in tribe)
+            {
+                Agent a = agent.GetComponent<Agent>();
+
+                if (a.x == x && a.y == y)
+                    foundAgents.Add(agent);
+            }
+        }
+
+        return foundAgents;
+    }
+
+    public static List<GameObject> GetTreesAt(int x, int y)
+    {
+        List<GameObject> foundTrees = new List<GameObject>();
+
+        foreach (GameObject tree in InitScript.trees)
+        {
+            Tree t = tree.GetComponent<Tree>();
+
+            if (t.x == x && t.y == y)
+                foundTrees.Add(tree);
+        }
+
+        return foundTrees;
+    }
+
+    public static bool ContainsGrownTree(List<GameObject> trees)
+    {
+        foreach(GameObject tree in trees)
+        {
+            if (tree.GetComponent<Tree>().isGrown)
+                return true;
+        }
+        return false;
+    }
+
+    public static bool ContainsEnemyAgent(List<GameObject> agents, int tribeId)
+    {
+        foreach (GameObject agent in agents)
+        {
+            if (agent.GetComponent<Agent>().tribeId != tribeId)
+                return true;
+        }
+        return false;
+    }
+
+    public static bool ContainsFriendlyHome(int x, int y, int tribeId)
+    {
+        Home home = InitScript.homes[tribeId - 1].GetComponent<Home>();
+        
+        if (home.x == x && home.y == y)
+            return true;
+        return false;
+    }
+
+    internal static bool IsTarget(int x, int y, (int, int) target)
+    {
+        return (x == target.Item1 && y == target.Item2);
     }
 }

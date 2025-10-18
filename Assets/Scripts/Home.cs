@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Home : MonoBehaviour
 {
-    public int id;
+    public int tribeId;
+    public int x;
+    public int y;
     private int counter = 0;
     public float prosperity = 0;
+    public float maxProsperity = 0;
     public float storedFood = 0;
     public float ambition;
 
@@ -29,6 +32,7 @@ public class Home : MonoBehaviour
             if (counter > 100) // Check if food supply is stable
             {
                 prosperity += storedFood - 100 + ambition;
+                maxProsperity = Mathf.Max(maxProsperity, prosperity);
                 storedFood = 100 - ambition;
                 counter = 0;
             } else

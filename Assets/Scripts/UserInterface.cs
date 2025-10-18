@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class UserInterface : MonoBehaviour
     public Text populationTribe3;
     public Text populationTribe4;
     public Text simulationTicks;
+    public Text objectData;
     public int fps = 10;
     public bool isPaused = false;
 
@@ -28,13 +30,13 @@ public class UserInterface : MonoBehaviour
     public void UpdateTribeScores()
     {
         if (InitScript.homes.Count >= 1)
-            scoreTribe1.text = "Tribe 1 prosperity: " + InitScript.homes[0].GetComponent<Home>().prosperity.ToString("F2");
+            scoreTribe1.text = "Tribe 1 prosperity: " + InitScript.homes[0].GetComponent<Home>().prosperity.ToString("F2") + " Max: " + InitScript.homes[0].GetComponent<Home>().maxProsperity.ToString("F2");
         if (InitScript.homes.Count >= 2)
-            scoreTribe2.text = "Tribe 2 prosperity: " + InitScript.homes[1].GetComponent<Home>().prosperity.ToString("F2");
+            scoreTribe2.text = "Tribe 2 prosperity: " + InitScript.homes[1].GetComponent<Home>().prosperity.ToString("F2") + " Max: " + InitScript.homes[1].GetComponent<Home>().maxProsperity.ToString("F2");
         if (InitScript.homes.Count >= 3)
-            scoreTribe3.text = "Tribe 3 prosperity: " + InitScript.homes[2].GetComponent<Home>().prosperity.ToString("F2");
+            scoreTribe3.text = "Tribe 3 prosperity: " + InitScript.homes[2].GetComponent<Home>().prosperity.ToString("F2") + " Max: " + InitScript.homes[2].GetComponent<Home>().maxProsperity.ToString("F2");
         if (InitScript.homes.Count >= 4)
-            scoreTribe4.text = "Tribe 4 prosperity: " + InitScript.homes[3].GetComponent<Home>().prosperity.ToString("F2");
+            scoreTribe4.text = "Tribe 4 prosperity: " + InitScript.homes[3].GetComponent<Home>().prosperity.ToString("F2") + " Max: " + InitScript.homes[3].GetComponent<Home>().maxProsperity.ToString("F2");
     }
     public void UpdateTribePopulation()
     {
@@ -53,6 +55,25 @@ public class UserInterface : MonoBehaviour
         simulationTicks.text = "Simulation ticks: " + ticksCount.ToString();
     }
 
+    public void UpdataSelectedObjectData()
+    {
+        switch (EventClick.tag)
+        {
+            case "Agent":
+                UpdateAgentData();
+                break;
+            case "Home":
+                UpdateHomeData();
+                break;
+            case "Tree":
+                UpdateTreeData();
+                break;
+            case "Background":
+                ClearObjectData();
+                break;
+        }
+    }
+
     public void SetTargetFps(float newFps)
     {
         fps = Mathf.RoundToInt(newFps);
@@ -69,5 +90,73 @@ public class UserInterface : MonoBehaviour
             isPaused = true;
             pauseButton.GetComponentInChildren<Text>().text = "Resume";
         }
+    }
+
+    public void UpdateAgentData()
+    {
+        if (EventClick.selectedObject == null)
+        {
+            ClearObjectData();
+            return;
+        }
+
+        Agent agent = EventClick.selectedObject.GetComponent<Agent>();
+
+        string text = "";
+        text += "Tribe: " + agent.tribeId;
+        text += "\nPosition: " + agent.x + "," + agent.y;
+        text += "\nStatus: " + agent.status;
+        text += "\nTarget position: " + agent.target.Item1 + "," + agent.target.Item2;
+        text += "\nIs adult? " + agent.isAdult;
+        text += "\nAge: " + agent.age;
+        text += "\nAdulthood age: " + agent.adulthoodAge;
+        text += "\nEnergy: " + agent.energy;
+        text += "\nInventory: " + agent.inventory;
+        text += "\nInventory capacity: " + agent.inventoryCapacity;
+        text += "\nFertility: " + agent.fertility;
+        text += "\nMutation rate: " + agent.mutationRate;
+        text += "\nMutation strength: " + agent.mutationStrength;
+        text += "\nSpeed: " + agent.speed;
+        text += "\nHeight: " + agent.height;
+        text += "\nStrength: " + agent.strength;
+        text += "\nAggression: " + agent.aggression;
+        text += "\nCowardice: " + agent.cowardice;
+        text += "\nCharisma: " + agent.charisma;
+        text += "\nPatience: " + agent.patience;
+        text += "\nWaiting for: " + agent.waitingTime + " ticks";
+        text += "\nBirth cooldown: " + agent.birthCooldown+ " ticks";
+
+        objectData.text = text;
+    }
+
+    public void UpdateHomeData()
+    {
+        Home home = EventClick.selectedObject.GetComponent<Home>();
+
+        string text = "";
+        text += "Tribe: " + home.tribeId;
+        text += "\nPosition: " + home.x + "," + home.y;
+        text += "\nProsperity: " + home.prosperity;
+        text += "\nStored food: " + home.storedFood;
+        text += "\nAmbition: " + home.ambition;
+
+        objectData.text = text;
+    }
+
+    public void UpdateTreeData()
+    {
+        Tree tree = EventClick.selectedObject.GetComponent<Tree>();
+
+        string text = "";
+        text += "Position: " + tree.x + "," + tree.y;
+        text += "\nIs grown? " + tree.isGrown;
+        text += "\nWill grow in " + (tree.counter == 0 ? 0 : InitScript.fruitGrowthSpeed - tree.counter) + " ticks";
+
+        objectData.text = text;
+    }
+
+    public void ClearObjectData()
+    {
+        objectData.text = "";
     }
 }

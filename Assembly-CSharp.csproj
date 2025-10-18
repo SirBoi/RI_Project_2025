@@ -60,10 +60,15 @@
     <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\Tree.cs" />
     <Compile Include="Assets\Scripts\MainLoop.cs" />
+    <Compile Include="Assets\Scripts\UserInterface.cs" />
     <Compile Include="Assets\Scripts\Home.cs" />
     <Compile Include="Assets\Scripts\Agent.cs" />
-    <Compile Include="Assets\Scripts\UserInterface.cs" />
     <Compile Include="Assets\Scripts\EventClick.cs" />
+    <Compile Include="Assets\Scripts\ValuesPreset1.cs" />
+    <Compile Include="Assets\Scripts\ValuesPreset2.cs" />
+    <Compile Include="Assets\Scripts\ValuesPreset3.cs" />
+    <Compile Include="Assets\Scripts\ValuesPreset4.cs" />
+    <Compile Include="Assets\Scripts\PresetLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
